@@ -5,10 +5,10 @@ int main()
     // Create the main window
     sf::RenderWindow window(sf::VideoMode(800, 600), "Simple 2D Game");
 
-    // Create a rectangle shape
-    sf::RectangleShape rectangle(sf::Vector2f(100.f, 100.f));
-    rectangle.setFillColor(sf::Color::Green);
-    rectangle.setPosition(350.f, 250.f);
+    // Create a circle shape
+    sf::CircleShape circle(50.f); // Radius of 50
+    circle.setFillColor(sf::Color::Green);
+    circle.setPosition(350.f, 250.f);
 
     // Start the game loop
     while (window.isOpen())
@@ -21,21 +21,21 @@ int main()
                 window.close();
         }
 
-        // Move the rectangle with arrow keys
+        // Move the circle with arrow keys
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-            rectangle.move(-0.1f, 0.f);
+            circle.move(-0.1f, 0.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-            rectangle.move(0.1f, 0.f);
+            circle.move(0.1f, 0.f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-            rectangle.move(0.f, -0.1f);
+            circle.move(0.f, -0.1f);
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-            rectangle.move(0.f, 0.1f);
+            circle.move(0.f, 0.1f);
 
         // Clear screen
         window.clear();
 
-        // Draw the rectangle
-        window.draw(rectangle);
+        // Draw the circle
+        window.draw(circle);
 
         // Update the window
         window.display();
