@@ -8,7 +8,7 @@ make install
 sudo apt-get install libsfml-dev 
 ```
 
-## Build
+## Build and run
 
 ```bash
 make run
