@@ -13,3 +13,7 @@ sudo apt-get install libsfml-dev
 ```bash
 make run
 ```
+
+## Milestones
+
+![slug-chase](./slug-chase.png)
