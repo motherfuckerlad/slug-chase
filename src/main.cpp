@@ -1,9 +1,16 @@
 #include <SFML/Graphics.hpp>
+#include "includes/Environment.h"
 
 int main()
 {
     // Create the main window
-    sf::RenderWindow window(sf::VideoMode(800, 600), "Simple 2D Game");
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "Simple 2D Game", sf::Style::Fullscreen);
+
+    // Get the desktop resolution
+    sf::Vector2u resolution = window.getSize();
+
+    // Create the environment
+    Environment environment(sf::Vector2f(resolution.x, resolution.y));
 
     // Create a rectangle shape
     sf::RectangleShape rectangle(sf::Vector2f(100.f, 100.f));
@@ -31,8 +38,8 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
             rectangle.move(0.f, 0.1f);
 
-        // Clear screen
-        window.clear();
+        // Draw the environment
+        environment.draw(window);
 
         // Draw the rectangle
         window.draw(rectangle);

@@ -1,10 +1,22 @@
-.EXPORT_ALL_VARIABLES:
+CXX = g++
+CXXFLAGS = -std=c++17 -Iincludes
+LDFLAGS = -lsfml-graphics -lsfml-window -lsfml-system
 
-# Install dependencies
-install:
-	sudo apt-get install libsfml-dev 
+SRCS = src/main.cpp src/Environment.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-# Build the project and run it
-run:
-	g++ main.cpp -o game -lsfml-graphics -lsfml-window -lsfml-system
-	./game
+EXEC = Slug-Chase
+
+all: $(EXEC)
+
+$(EXEC): $(OBJS)
+	$(CXX) $(OBJS) -o $(EXEC) $(LDFLAGS)
+
+.cpp.o:
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS) $(EXEC)
+
+run: $(EXEC)
+	./$(EXEC)

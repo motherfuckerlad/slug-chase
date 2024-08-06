@@ -11,7 +11,7 @@ sudo apt-get install libsfml-dev
 ## Build and run
 
 ```bash
-make run
+make clean && make && make run
 ```
 
 ## Milestones
