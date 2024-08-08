@@ -15,6 +15,7 @@ public:
 
     // Member functions
     void draw(sf::RenderWindow &window);
+    void generateObstacles();
     float getGravity() const;
 
 private:
